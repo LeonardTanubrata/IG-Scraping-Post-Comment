@@ -23,14 +23,12 @@ driver = webdriver.Chrome()
 driver.get("https://www.instagram.com/accounts/login/")
 
 # Input instagram username and password
-username = "kemang.ol"
-password = "kemangOlrange@999"
+username = ""
+password = ""
 
 # Input instagram post id. Post id is 11 unique code for every instagram link
 # If you want to mined more than one content, then seperate the post id using comma     
-post_id = ['Ckm9-rMr4Q7']
-                
-scroll_count = 1 # You can adjust the number of scrolls as needed.
+post_id = ['']
 
 time.sleep(5)
 
@@ -63,15 +61,6 @@ for post in post_id :
         comment_section_element = WebDriverWait(driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//div[@class='x5yr21d xw2csxc x1odjw0f x1n2onr6']"))
             )
-        
-        # UnComment this code if you want to put how many scroll
-
-        # for _ in range(scroll_count):  
-        #         try :
-        #             driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight);", comment_section_element)
-        #             time.sleep(0.5)
-        #         except :
-        #              break
 
         previous_height = driver.execute_script("return arguments[0].scrollHeight", comment_section_element)
         print('Scrolling Begin')
@@ -134,5 +123,5 @@ display(df_result)
 
 # %%
 # Save to CSV File
-df_result.to_csv('tokpedcomment4.csv', index=False)
+df_result.to_csv('', index=False)
 # %%
